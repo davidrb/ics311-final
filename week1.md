@@ -63,3 +63,40 @@
       - top(new()) is an error
 
 ## Topic 4
+- Stacks
+  - Follow **Last in, First out** principle.
+  - Usefule when a problem has a goal-subgoal substructure.
+  ```java
+  public interface Stack {
+  // ADT that stores and retrieves Objects in a LIFO manner
+
+     public Stack( ); 
+     // Create an instance of ADT Stack and initialize it to the empty stack.
+
+     public void push(Object o); 
+     // Insert object o at the top of the stack.
+
+     public Object pop( ); 
+     // Remove and return the top (most recently pushed) object on the stack.
+     // Error occurs if the stack is empty. 
+
+     public int size( ); 
+     // Return the number of objects in the stack.
+
+     public boolean isEmpty( ); 
+     // Return a boolean indicating whether the stack is empty.
+
+     public Object top( ); 
+     // Return the top (most recently pushed) object on the stack, without 
+     // removing it. Error occurs if the stack is empty.
+  ```
+  - Properties:
+    - { push(s,e); s.top() } returns value e
+    - { push(s,e); s.pop() } returns value e and leaves s in the same state
+    - { s = new(); s.isEmpty() } returns true
+    - { push(s,i); s.isEmpty() } returns false
+    - if s.isEmpty() then s.top() is an error, and does not change s
+    - if s.isEmpty() then s.pop() is an error, and does not change s
+    - if s.isEmpty() then s.size() == 0
+    - if s.size() == n then after s.push(o), s.size() == n+1
+    - if ¬s.isEmpty() and s.size() == n then after s.pop(o), s.size() == n-1.
